@@ -1,9 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tab4</ion-title>
+    <ion-title>
+      CRUD HProductos
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <!--<ion-item>
+      <ion-input type="text" hidden [(ngModel)]="idProducto"></ion-input>
+      <ion-input type="text" placeholder="Ingrese Nombre" [(ngModel)]="nombreProducto"></ion-input>
+      <ion-input type="text" placeholder="Ingrese ID Categoria" [(ngModel)]="idCategoria"></ion-input>
+      <div class="item-note" item-end>
+          <ion-button *ngIf="!swGuardarCambios" (click)="addProducto()">Agregar Producto</ion-button>
+          <ion-button *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+      </div>
+  </ion-item>-->
+  <div padding>
+      <ion-list>
+          <ion-item *ngFor="let item of listHProducto">
+              {{item.id}}
+              ({{item.cantidad}})
+              <!--<div class="item-note" slot="end">
+                  <ion-button color="warning" (click)="updateProducto(item)">Editar</ion-button>
+                  <ion-button color="danger" (click)="deleteProducto(item)">Eliminar</ion-button>
+              </div>-->
+          </ion-item>
+      </ion-list>
+  </div>
 </ion-content>
