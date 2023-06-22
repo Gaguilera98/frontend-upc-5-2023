@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      CRUD CARRITO DE COMPRA
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+     
+      
+      <ion-input type="date" placeholder="Ingrese " [(ngModel)]="fecha"></ion-input>
+      <ion-input type="text" placeholder="Ingrese IdUser" [(ngModel)]="idUsuario"></ion-input>
+      
+      <div class="item-note" item-end>
+          <ion-button *ngIf="!swGuardarCambios" (click)="addCarrito()">Agregar Carrito</ion-button>
+<!--           <ion-button *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+ -->      </div>
+  </ion-item>
+  <div padding>
+      <ion-list>
+          <ion-item *ngFor="let item of listcarrito">
+              {{item.id}}
+              {{item.idUsuario}}
+              {{item.fecha}}
+              {{item.producto}}
+              {{item.usuarios}}
+              
+             <!-- <div class="item-note" slot="end">
+                  <ion-button color="warning" (click)="updateProducto(item)">Editar</ion-button>
+                  <ion-button color="danger" (click)="deleteProducto(item)">Eliminar</ion-button>
+              </div>-->
+          </ion-item>
+      </ion-list>
+  </div>
+  
+  
+</ion-content>
