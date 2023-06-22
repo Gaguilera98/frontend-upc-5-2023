@@ -18,9 +18,11 @@ export class Tab4Page  {
   public swGuardarCambios = false
 
 
-  constructor(private hproductoservice: HproductoService) { }
+  constructor(private hproductoService: HproductoService) {
+    this.GetHProductos();
+   }
   public GetHProductos(){
-    this.hproductoservice.GetHProductos().subscribe({
+    this.hproductoService.GetHProductos().subscribe({
         next: (response: HttpResponse<any>) => {
             this.listHProducto = response.body;
             console.log(this.listHProducto)

@@ -20,7 +20,11 @@
       <ion-list>
           <ion-item *ngFor="let item of listHProducto">
               {{item.id}}
-              ({{item.cantidad}})
+              {{item.cantidad}}
+              {{item.idProducto}}
+              {{item.idCarritoCompra}}
+              {{item.producto}}
+              {{item.carritoCompra}}
               <!--<div class="item-note" slot="end">
                   <ion-button color="warning" (click)="updateProducto(item)">Editar</ion-button>
                   <ion-button color="danger" (click)="deleteProducto(item)">Eliminar</ion-button>
