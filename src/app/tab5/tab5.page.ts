@@ -14,16 +14,19 @@ export class Tab5Page{
   public fecha = ""
   public producto=""
   public usuarios=""
+  public searchedUser :any
   public swGuardarCambios = false
  
   constructor(private carritoservice: CarritoService) {
     this.GetCarrito();
+    
    }
   public GetCarrito(){
     this.carritoservice.GetCarrito().subscribe({
         next: (response: HttpResponse<any>) => {
             this.listcarrito = response.body;
             console.log(this.listcarrito)
+            
         },
         error: (error: any) => {
             console.log(error);
@@ -31,15 +34,15 @@ export class Tab5Page{
         complete: () => {
             console.log('complete - this.GetCarrito()');
         },
-    });
+    }); 
   }
 
   public addCarrito(){
-    if (this.idUsuario.length > 0  && this.fecha.length > 0 ) {
+    if ( this.fecha.length > 0 && this.idUsuario.length > 0 ) {
         var entidad = {
             
             fechac : this.fecha,
-            idUser : this.idUsuario
+            idUsuario : this.idUsuario
             
         }
         console.log(entidad)
@@ -49,6 +52,7 @@ export class Tab5Page{
                 if(response.body == 1){
                     alert("Se agrego el Carrito con exito :)");
                     this.GetCarrito();//Se actualize el listado
+                    this.fecha="";
                     this.idUsuario = "";
                    
                 }else{
@@ -64,5 +68,6 @@ export class Tab5Page{
         });
     }
 }
+
 
 }

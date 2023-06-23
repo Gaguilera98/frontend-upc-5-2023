@@ -9,9 +9,11 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class Tab2Page {
 
+  public idUsuario=""
   public nombreCompleto = ""
   public userName = ""
   public password = ""
+  public swGuardarCambios= false;
 
 public listUsuarios = [];
 
@@ -52,7 +54,7 @@ public listUsuarios = [];
                     this.userName = "";
                     this.password = "";
                 }else{
-                    alert("Al agregar al Usuario fallo exito :(");
+                    alert("Al agregar al Usuario falló:(");
                 }
             },
             error: (error: any) => {
@@ -67,6 +69,12 @@ public listUsuarios = [];
 
   public updateUsuario(item){
 
+     console.log(item)
+    this.idUsuario = item.id //oculto
+    this.nombreCompleto = item.nombreCompleto //input
+    this.userName = item.userName //input
+    this.password = item.password
+    this.swGuardarCambios = true;
   }
 
   public deleteUsuario(item){

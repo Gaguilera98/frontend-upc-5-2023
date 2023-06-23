@@ -35,7 +35,39 @@ export class Tab4Page  {
         },
     });
   }
-
+  public addHproductos(){
+    if ( this.cantidad.length > 0 && this.idProducto.length > 0 && this.idCarritoCompra.length > 0 ) {
+        var entidad = {
+            
+          cantidad : this.cantidad,
+          IdProducto : this.idProducto,
+          IdCarritoCompra : this.idCarritoCompra
+            
+        }
+        console.log(entidad)
+        this.hproductoService.AddHproductos(entidad).subscribe({
+            next: (response: HttpResponse<any>) => {
+                console.log(response.body)//1
+                if(response.body == 1){
+                    alert("Se agrego el Carrito con exito :)");
+                    this.GetHProductos();//Se actualize el listado
+                    this.cantidad="";
+                    this.idProducto = "";
+                    this.idCarritoCompra="";
+                   
+                }else{
+                    alert("Al agregar el detalle falló :(");
+                }
+            },
+            error: (error: any) => {
+                console.log(error);
+            },
+            complete: () => {
+                console.log('complete - this.addHproductos()');
+            },
+        });
+    }
+}
  
 
 }

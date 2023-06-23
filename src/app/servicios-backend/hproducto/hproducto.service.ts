@@ -12,7 +12,7 @@ export class HproductoService {
 
   URL_GET_HPRODUCTOS = this.PATH_BACKEND + "/api/HProducto"
   URL_GET_BY_ID_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/GetCategoriaById"
-  URL_ADD_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/AddCategoria"
+  URL_ADD_HPRODUCTO = this.PATH_BACKEND + "/api/HProducto/AddHProducto"
   URL_UPDATE_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/UpdateCategoria"
   URL_DELETE_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/DeleteCategoria"
 
@@ -24,5 +24,12 @@ export class HproductoService {
           .get<any>(this.URL_GET_HPRODUCTOS,
               { observe: 'response' })
           .pipe();
+}
+public AddHproductos(entidad): Observable<HttpResponse<any>> {
+
+  return this.http
+      .post<any>(this.URL_ADD_HPRODUCTO, entidad,
+          { observe: 'response' })
+      .pipe();
 }
 }

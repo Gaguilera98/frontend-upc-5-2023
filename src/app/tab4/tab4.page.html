@@ -7,15 +7,16 @@
 </ion-header>
 
 <ion-content padding>
-  <!--<ion-item>
+  <ion-item>
       <ion-input type="text" hidden [(ngModel)]="idProducto"></ion-input>
-      <ion-input type="text" placeholder="Ingrese Nombre" [(ngModel)]="nombreProducto"></ion-input>
-      <ion-input type="text" placeholder="Ingrese ID Categoria" [(ngModel)]="idCategoria"></ion-input>
+      <ion-input type="text" placeholder="Ingrese cantidad" [(ngModel)]="cantidad"></ion-input>
+      <ion-input type="text" placeholder="Ingrese ID Producto" [(ngModel)]="idProducto"></ion-input>
+      <ion-input type="text" placeholder="Ingrese ID Carrito" [(ngModel)]="idCarritoCompra"></ion-input>
       <div class="item-note" item-end>
-          <ion-button *ngIf="!swGuardarCambios" (click)="addProducto()">Agregar Producto</ion-button>
-          <ion-button *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
-      </div>
-  </ion-item>-->
+          <ion-button *ngIf="!swGuardarCambios" (click)="addHproductos()">Agregar Detalle Producto</ion-button>
+<!--           <ion-button *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+ -->      </div>
+  </ion-item>
   <div padding>
       <ion-list>
           <ion-item *ngFor="let item of listHProducto">
