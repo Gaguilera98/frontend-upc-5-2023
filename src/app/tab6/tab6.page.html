@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>HABITACIONES</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row >
+      <ion-col>Id</ion-col>
+      <ion-col>Nombre</ion-col>
+      <ion-col>Área</ion-col>
+      <ion-col>Capacidad</ion-col>
+      <ion-col>Descripción</ion-col>
+      <ion-col>
+        Acciones
+      </ion-col>
+  
+    </ion-row>
+    <ion-row *ngFor="let item of listHabitaciones">
+      <ion-col><ion-chip color="primary">{{item.id}}</ion-chip></ion-col>
+      <ion-col>{{item.nombre}}</ion-col>
+      <ion-col>{{item.area}}</ion-col>
+      <ion-col>{{item.capacidad}}</ion-col>
+      <ion-col>{{item.descripcion}}</ion-col>
+      <ion-col>
+        <ion-button id="updateProducto" color="warning" >Editar</ion-button>
+        <ion-button id="deleteProducto" color="danger" >Eliminar</ion-button>
+      </ion-col>
+  
+    </ion-row>
+
+    
+  </ion-grid>
+  
+</ion-content>

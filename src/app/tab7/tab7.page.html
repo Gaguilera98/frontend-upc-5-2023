@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>RESERVAS</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-item>
+  
+  <ion-button color="success" (click)="abrirModal()">Agregar una reservas</ion-button>
+</ion-item>
+
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row >
+      <ion-col>Id</ion-col>
+      <ion-col>Id Hab</ion-col>
+      <ion-col>Id Usuario</ion-col>
+      <ion-col>Fecha Entrada</ion-col>
+      <ion-col>Fecha Salida</ion-col>
+      <ion-col>Estado Reserva</ion-col>
+      <ion-col>
+        Acciones
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let item of lisReserva">
+      <ion-col><ion-chip color="primary">{{item.id}}</ion-chip></ion-col>
+      <ion-col>{{item.habitacion.nombre}}</ion-col>
+      <ion-col>{{item.usuario.nombreCompleto}}</ion-col>
+      <ion-col>{{item.fechaEntrada}}</ion-col>
+      <ion-col>{{item.fechaSalida}}</ion-col>
+      <ion-col>{{item.estadoReserva}}</ion-col>
+      <ion-col>
+        <ion-button id="updateProducto" color="warning" >Editar</ion-button>
+        <ion-button id="deleteProducto" color="danger" >Eliminar</ion-button>
+      </ion-col>
+  
+    </ion-row>
+
+    
+  </ion-grid>
+  
+</ion-content>
