@@ -25,13 +25,13 @@ public listUsuarios = [];
     this.usuariosService.GetUsuarios().subscribe({
         next: (response: HttpResponse<any>) => {
             this.listUsuarios = response.body;
-            console.log(this.listUsuarios)
+            //console.log(this.listUsuarios)
         },
         error: (error: any) => {
             console.log(error);
         },
         complete: () => {
-            console.log('complete - this.getUsuarios()');
+            //console.log('complete - this.getUsuarios()');
         },
     });
   }
@@ -46,7 +46,7 @@ public listUsuarios = [];
         console.log(entidad)
         this.usuariosService.AddUsuario(entidad).subscribe({
             next: (response: HttpResponse<any>) => {
-                console.log(response.body)//1
+                //console.log(response.body)//1
                 if(response.body == 1){
                     alert("Se agrego al Usuario con exito :)");
                     this.getUsuarios();//Se actualize el listado
