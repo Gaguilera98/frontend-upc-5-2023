@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulario de Reserva</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+
+ 
+  <ion-list>
+    <ion-item>
+      <ion-select [(ngModel)]="idHabitacion" label="Defauul Habitacion" placeholder="Selecciona la habitacion">
+        <ion-select-option *ngFor="let habitacion of listhabitaionModal" [value]="habitacion.id">{{habitacion.id}}-{{habitacion.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-select [(ngModel)]="idUsuario" label="Defauul Usuario" placeholder="Selecciona el Usuario">
+        <ion-select-option *ngFor="let usuario of listUsaurioModal" [value]="usuario.id">{{usuario.id}}-{{usuario.nombreCompleto}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <p>Fecha de Entrada</p>
+      <ion-input [(ngModel)]="fechaEntrada" label="Fecha" type="date" placeholder="Fecha"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <p>Fecha de Salida</p><br>
+      <ion-input [(ngModel)]="fechaSalida" label="Fecha" type="date" placeholder="Fecha"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select [(ngModel)]="estadoReserva" label="Default label" placeholder="Estado de la Reserva">
+        <ion-select-option value="pendiente">Pendiente</ion-select-option>
+        <ion-select-option value="pagada">Pagada</ion-select-option>
+        <ion-select-option value="cancelada">Cancelada</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="item-note" item-end>
+      <ion-button color="success" (click)="addReserva()">Agregar Reserva</ion-button>
+    </div>
+  </ion-list>
+    
+</ion-content> 

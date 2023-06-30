@@ -21,7 +21,11 @@ const routes: Routes = [
   {
     path: 'tab7',
     loadChildren: () => import('./tab7/tab7.module').then( m => m.Tab7PageModule)
+  },  {
+    path: 'modal-item',
+    loadChildren: () => import('./modal-item/modal-item.module').then( m => m.ModalItemPageModule)
   },
+
  
 
 ];

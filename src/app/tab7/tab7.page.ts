@@ -2,8 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ReservaService } from '../servicios-backend/reserva/reserva.service';
 import { HttpResponse } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
-import { OverlayEventDetail } from '@ionic/core/components';
-import { ExampleComponent } from '../example/example.component';
+import { ModalItemPage } from '../modal-item/modal-item.page';
 
 @Component({
   selector: 'app-tab7',
@@ -12,6 +11,7 @@ import { ExampleComponent } from '../example/example.component';
 })
 export class Tab7Page {
   public lisReserva=[];
+  public filtro: string ;
   @ViewChild(ModalController) modal: ModalController;
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
   name: string;
@@ -24,6 +24,7 @@ export class Tab7Page {
         next: (response: HttpResponse<any>) => {
             this.lisReserva = response.body;
             console.log(this.lisReserva)
+            this.filtrarReservas(); // Aplicar el filtro de búsqueda inicial
         },
         error: (error: any) => {
             console.log(error);
@@ -34,9 +35,10 @@ export class Tab7Page {
     });
   }
 
+
   async abrirModal() {
     const modal = await this.modalController.create({
-      component: ExampleComponent, // Reemplaza "TuModalComponent" por el nombre de tu componente modal
+      component: ModalItemPage, // Reemplaza "TuModalComponent" por el nombre de tu componente modal
       componentProps: {
         // Aquí puedes pasar propiedades adicionales al componente modal si lo necesitas
       }
@@ -44,7 +46,11 @@ export class Tab7Page {
   
     await modal.present();
   }
-  
+  public filtrarReservas() {
+    this.lisReserva = this.lisReserva.filter((reserva) =>
+      reserva.id.includes(this.filtro)
+    );
+  }
 
 }
 

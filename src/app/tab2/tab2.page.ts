@@ -14,6 +14,8 @@ export class Tab2Page {
   public userName = ""
   public password = ""
   public swGuardarCambios= false;
+  public filtro: string ;
+  public filtrobtn =false;
 
 public listUsuarios = [];
 
@@ -26,6 +28,7 @@ public listUsuarios = [];
         next: (response: HttpResponse<any>) => {
             this.listUsuarios = response.body;
             //console.log(this.listUsuarios)
+            this.filtrarUsuario();
         },
         error: (error: any) => {
             console.log(error);
@@ -80,5 +83,24 @@ public listUsuarios = [];
   public deleteUsuario(item){
     
   }
-
+  public filtrarUsuario() {
+    if (this.filtro) {
+      this.listUsuarios = this.listUsuarios.filter((usuario) => {
+        if (usuario && usuario.nombreCompleto) {
+          return usuario.nombreCompleto.toLowerCase().includes(this.filtro.toLowerCase());
+        }
+        return false;
+      });
+    } else {
+      if ( this.filtro.length ==0 ){
+        this.getUsuarios();
+      }
+    }
+  }
+  
+  
+  
+  
+  
+  
 }

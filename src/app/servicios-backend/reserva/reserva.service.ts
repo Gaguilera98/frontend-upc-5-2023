@@ -10,7 +10,7 @@ export class ReservaService {PATH_BACKEND = environment.URL_BACKEND + environmen
 
   URL_GET_RESERVAS = this.PATH_BACKEND + "/api/Reserva"
   URL_GET_BY_ID_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/GetCategoriaById"
-  URL_ADD_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/AddCategoria"
+  URL_ADD_RESERVA = this.PATH_BACKEND + "/api/Reserva/AddReserva"
   URL_UPDATE_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/UpdateCategoria"
   URL_DELETE_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/DeleteCategoria"
   constructor(private http: HttpClient) { }
@@ -21,5 +21,12 @@ export class ReservaService {PATH_BACKEND = environment.URL_BACKEND + environmen
         .get<any>(this.URL_GET_RESERVAS,
             { observe: 'response' })
         .pipe();
+}
+public AddReserva(entidad): Observable<HttpResponse<any>> {
+
+  return this.http
+      .post<any>(this.URL_ADD_RESERVA, entidad,
+          { observe: 'response' })
+      .pipe();
 }
 }
