@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ExampleModule } from './example/example.component.module';
+
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
