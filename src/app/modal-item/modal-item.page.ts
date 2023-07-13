@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ReservaService } from '../servicios-backend/reserva/reserva.service';
 import { HttpResponse } from '@angular/common/http';
 import { UsuariosService } from '../servicios-backend/usuarios/usuarios.service';
 import { HabitacionesService } from '../servicios-backend/habitaciones/habitaciones.service';
+import { ModalController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal-item',
@@ -19,14 +20,15 @@ export class ModalItemPage  {
   public estadoReserva=""
   public swGuardarCambios = false
   public preuba= ""
+  public isModalOpen= false
+  //@ViewChild(ModalController) modal: ModalController;
   
 
-
-
-  
   constructor(private modalhabitacionservice: HabitacionesService, 
     private modalusuarioservice: UsuariosService,
-    private modalreservaservice: ReservaService) {
+    private modalreservaservice: ReservaService,
+    private navController: NavController,
+    private modalController: ModalController) {
     this.getHabitaciones();
     this.getUsuarios();
    }
@@ -110,10 +112,13 @@ export class ModalItemPage  {
     this.estadoReserva = '';
     
   }
-
-
+  
+  cerrarModal() {
+    this.modalController.dismiss().then(() => {
+      this.navController.navigateForward('/tabs/tab7');
+    });
 
 }
 
-
+}
 

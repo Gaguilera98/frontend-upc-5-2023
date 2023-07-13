@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'modal-item',
     loadChildren: () => import('./modal-item/modal-item.module').then( m => m.ModalItemPageModule)
   },
+  {
+    path: 'modal-editar-reserva',
+    loadChildren: () => import('./modal-editar-reserva/modal-editar-reserva.module').then( m => m.ModalEditarReservaPageModule)
+  },
 
  
 

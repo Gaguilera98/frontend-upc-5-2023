@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Formulario de Reserva</ion-title>
+    <ion-title>Editar Reserva</ion-title>
     <ion-buttons slot="end">
     <ion-button (click)="cerrarModal()">Cerrar y volver</ion-button>
   </ion-buttons>
@@ -12,6 +12,9 @@
 
  
   <ion-list>
+    <ion-item>
+      <ion-input hidden [(ngModel)]="id" label="Default input"></ion-input>
+    </ion-item>
     <ion-item>
       <ion-select [(ngModel)]="idHabitacion" label="Defauul Habitacion" placeholder="Selecciona la habitacion">
         <ion-select-option *ngFor="let habitacion of listhabitaionModal" [value]="habitacion.id">{{habitacion.id}}-{{habitacion.nombre}}</ion-select-option>
@@ -34,16 +37,16 @@
       <ion-input [(ngModel)]="fechaSalida" label="Fecha" type="date" placeholder="Fecha"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-select [(ngModel)]="estadoReserva" label="Default label" placeholder="Estado de la Reserva">
-        <ion-select-option value="Pendiente">Pendiente</ion-select-option>
-        <ion-select-option value="Pagada">Pagada</ion-select-option>
-        <ion-select-option value="Cancelada">Cancelada</ion-select-option>
+        <ion-select-option value="pendiente">Pendiente</ion-select-option>
+        <ion-select-option value="pagada">Pagada</ion-select-option>
+        <ion-select-option value="cancelada">Cancelada</ion-select-option>
       </ion-select>
-    </ion-item>
+    </ion-item> -->
 
     <div class="item-note" item-end>
-      <ion-button color="success" (click)="addReserva()">Agregar Reserva</ion-button>
+      <ion-button color="success" (click)="guardarCambios()">Modificar Reserva</ion-button>
       
 
     </div>

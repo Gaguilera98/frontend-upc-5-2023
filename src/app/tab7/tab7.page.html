@@ -9,7 +9,7 @@
 </ion-item>
 
 
-<ion-searchbar [(ngModel)]="filtro" placeholder="Buscar Reserva" (ionChange)="filtrarReservas()"></ion-searchbar>
+<!-- <ion-searchbar [(ngModel)]="filtro" placeholder="Buscar Reserva" (ionChange)="filtrarReservas()"></ion-searchbar> -->
 <ion-content>
   <ion-grid>
     <ion-row >
@@ -19,6 +19,8 @@
       <ion-col>Fecha Entrada</ion-col>
       <ion-col>Fecha Salida</ion-col>
       <ion-col>Estado Reserva</ion-col>
+      <ion-col>Estado Registro</ion-col>
+      
       <ion-col>
         Acciones
       </ion-col>
@@ -30,10 +32,22 @@
       <ion-col>{{item.usuario.nombreCompleto}}</ion-col>
       <ion-col>{{item.fechaEntrada}}</ion-col>
       <ion-col>{{item.fechaSalida}}</ion-col>
-      <ion-col>{{item.estadoReserva}}</ion-col>
+      
+   
       <ion-col>
-        <ion-button id="updateProducto" color="warning" >Editar</ion-button>
-        <ion-button id="deleteProducto" color="danger" >Eliminar</ion-button>
+        <ion-item>
+        <ion-select [(ngModel)]="item.estadoReserva" (ionChange)="id = item.id; estadoReserva = item.estadoReserva; guardarCambios()">
+          <ion-select-option *ngFor="let estado of listEstadosReservas" [value]="estado">{{estado}}</ion-select-option>
+        </ion-select>
+        
+      </ion-item>
+    </ion-col>
+    <ion-col>{{item.estadoRegistro}}</ion-col>
+      <ion-col>
+        <ion-button id="updateProducto" color="warning" (click)="abrirModalEdicion(item)" >Editar</ion-button>
+ 
+        <ion-button id="deleteProducto" *ngIf="item.estadoRegistro==1"color="danger" (click)="deleteReserva(item)">Eliminar</ion-button>
+        <ion-button *ngIf="item.estadoRegistro==0" id="" color="success" (click)="ActivateReserva(item)" >Activar</ion-button>
       </ion-col>
   
     </ion-row>
